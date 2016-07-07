@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Playlist {
+class Playlist: Equatable {
   let title: String
   var songsArray: [Song]
   
