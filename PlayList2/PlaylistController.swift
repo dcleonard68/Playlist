@@ -10,6 +10,8 @@ import Foundation
 
 class playlistController {
   
+  static let sharedController = playlistController()
+  
   var playlists: [Playlist] = []
   
   // CRUD (Create, Read, Update, Delete)
