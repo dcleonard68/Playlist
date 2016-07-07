@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Playlist Table View Controller-->
         <scene sceneID="c4u-Bq-9r3">
             <objects>
-                <tableViewController id="wJN-Bq-gTN" sceneMemberID="viewController">
+                <tableViewController id="wJN-Bq-gTN" customClass="PlaylistTableViewController" customModule="PlayList2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ajy-hf-rSZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="K4g-CU-P6n" kind="show" id="PUX-s7-4W3"/>
+                                    <segue destination="K4g-CU-P6n" kind="show" identifier="toPlaylistDetailPlaylist" id="PUX-s7-4W3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -71,17 +71,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cAg-TS-TMm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="msz-Fg-jTW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="msz-Fg-jTW">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="wJN-Bq-gTN" id="wIZ-s9-vpe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="playlistTextField" destination="qmy-XA-l9P" id="4FW-KF-Ms3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSV-8D-oRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="673" y="243"/>
         </scene>
-        <!--View Controller-->
+        <!--Song Table View Controller-->
         <scene sceneID="3M4-zL-ygJ">
             <objects>
-                <viewController id="K4g-CU-P6n" sceneMemberID="viewController">
+                <viewController id="K4g-CU-P6n" customClass="SongTableViewController" customModule="PlayList2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E1s-FO-hAt"/>
                         <viewControllerLayoutGuide type="bottom" id="cZA-eB-J7B"/>
@@ -158,12 +165,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Gb-42-nbM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pcv-ii-OzK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pcv-ii-OzK">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="K4g-CU-P6n" id="C9c-c2-4Yn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="artistTextField" destination="VOM-u4-jwF" id="GLT-Y4-z6b"/>
+                        <outlet property="myTableView" destination="Z9m-Pg-fKS" id="Bsm-fr-2Mp"/>
+                        <outlet property="songTextField" destination="uHy-oS-ebG" id="Kj4-Za-X3a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdd-Bk-FdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="243"/>
+            <point key="canvasLocation" x="1072" y="243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y9a-nc-hKF">
