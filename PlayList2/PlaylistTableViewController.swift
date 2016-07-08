@@ -70,17 +70,21 @@ class PlaylistTableViewController: UITableViewController {
    }
    */
   
-  /*
-   // Override to support editing the table view.
-   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-   if editingStyle == .Delete {
-   // Delete the row from the data source
-   tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-   } else if editingStyle == .Insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
+  
+  // Override to support editing the table view.
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+      
+      let playlist = playlistController.sharedController.playlists[indexPath.row]
+      playlistController.sharedController.deletePlaylist(playlist)
+      
+      // Delete the row from the data source
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+    
+    
+  }
+  
   
   /*
    // Override to support rearranging the table view.
@@ -98,10 +102,10 @@ class PlaylistTableViewController: UITableViewController {
    */
   
   
-   // MARK: - Navigation
-   
+  // MARK: - Navigation
   
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
     // How do we get there?
     if segue.identifier == "toPlaylistDetailPlaylist" {
@@ -115,18 +119,18 @@ class PlaylistTableViewController: UITableViewController {
         let playlist = playlistController.sharedController.playlists[indexPath.row]
         // Did I arrive? Did I bring it?
         songTVC?.playlist = playlist
+        
+      }
+      
+      
       
     }
     
     
-      
-    }
     
-    
-    
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+  }
   
   
 }
