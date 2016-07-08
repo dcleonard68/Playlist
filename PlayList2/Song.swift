@@ -9,8 +9,18 @@
 import Foundation
 
 class Song: Equatable {
+  
+  private let kTitle = "titleKey"
+  private let kArtist = "artistKey"
+  
+  
   let title: String
   let artist: String
+  
+  var dictionaryCopy: [String: AnyObject]{
+    return[kTitle:title, kArtist:artist]
+    
+  }
   
   init(title: String, artist: String){
     self.title = title
@@ -22,4 +32,14 @@ class Song: Equatable {
 func ==(lhs: Song, rhs: Song) -> Bool {
   return lhs.title == rhs.title && lhs.artist == rhs.artist
 }
+
+
+
+
+
+
+
+
+
+
 
