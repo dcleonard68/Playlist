@@ -23,10 +23,6 @@ class Playlist: Equatable {
 
   }
   
-  
-  
-  
-  
   init(title: String, songs: [Song] = []){
     self.title = title
     self.songsArray = songs

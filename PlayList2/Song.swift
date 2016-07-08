@@ -27,6 +27,14 @@ class Song: Equatable {
     self.artist = artist
   }
   
+  init?(dictionary: [String: AnyObject]) {
+    guard let title = dictionary[kTitle] as? String,
+      artist = dictionary[kArtist] as? String else {
+        return nil
+    }
+    self.title = title
+    self.artist = artist
+  }
 }
 
 func ==(lhs: Song, rhs: Song) -> Bool {
