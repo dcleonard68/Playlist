@@ -14,22 +14,29 @@ class playlistController {
   
   var playlists: [Playlist] = []
   
+  init() {
+    loadFromPersistentStorage()
+  }
+  
   // CRUD (Create, Read, Update, Delete)
   
   func addPlaylist(name: String) {
     let playlist = Playlist(title: name)
     playlists.append(playlist)
+    saveToPersistentStorage()
   }
   
   func deletePlaylist(playlist: Playlist) {
     if let index = playlists.indexOf(playlist){
       playlists.removeAtIndex(index)
+      saveToPersistentStorage()
       
     }
   }
   
   func addSongToPlaylist(song: Song, playlist: Playlist){
     playlist.songsArray.append(song)
+    saveToPersistentStorage()
   }
   
   func removeSongFromPlaylist(song: Song, playlist: Playlist){
@@ -38,9 +45,22 @@ class playlistController {
     }
     
     playlist.songsArray.removeAtIndex(index)
+    saveToPersistentStorage()
     
   }
   
+  
+  func saveToPersistentStorage() {
+    
+  
+  }
+  
+  func loadFromPersistentStorage() {
+    
+  
+  }
+
+
 }
 
 
